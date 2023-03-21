@@ -1,0 +1,40 @@
+<!-- {/* <form
+            id="LoginCard"
+            onSubmit= { () => {
+
+            }}
+            >
+            <input
+            id={"userNameInput"}
+            type={"text"}
+            placeholder={"User Name"}
+            value={""}
+            required
+            onChange={(event) => {
+
+            }}
+            ></input>
+
+            <input
+            id={"userPassword"}
+            type={"password"}
+            placeholder={"Password"}
+            min={"8"}
+            value={""}
+            required onChange={(event)=> {
+
+            }}
+            ></input>
+
+            <button id="cardButton"type="submit">Enter</button>
+
+            <h3>
+                Forgot Password?
+                <span>
+                    <Link id={"passwordReset"} to={"/passwordRest"}>
+                        {" "}
+                        Reset Password Here
+                    </Link>
+                </span>
+            </h3>
+            </form> */} -->
