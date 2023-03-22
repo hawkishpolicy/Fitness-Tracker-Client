@@ -60,14 +60,16 @@ export const getPublicRoutinesCall = async () => {
 
 export const getAllUserRoutinesCall = async (username) => {
   try {
-    const response = await fetch(`${URL}/${username}/routines`, {
+    const response = await fetch(`${URL}/api/users/${username}/routines`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
+    console.log("token: ", localStorage.getItem("token"));
     const result = await response.json();
+    console.log("Get All User Routines Call: ", result);
     return result;
   } catch (error) {
     console.error(error);
@@ -85,6 +87,29 @@ export const getAllActivitiesCall = async () => {
 
     const result = await response.json();
     console.log("Activities Call", result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createNewRoutineCall = async (name, goal, isPublic) => {
+  try {
+    const response = await fetch(`${URL}/api/routines`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        isPublic: isPublic,
+        name: name,
+        goal: goal,
+      }),
+    });
+
+    const result = await response.json();
+    console.log("createNewRoutinesCall: ", result);
     return result;
   } catch (error) {
     console.log(error);

@@ -16,6 +16,11 @@ const Navbar = (props) => {
       <div id="linkBar">
       <Link id={"homeLink"} to={"/"}>Home</Link>
       <Link id={"routinesLink"} to={"/routines"}>Routines</Link>
+
+      {
+        isLoggedIn && <Link id={"myRoutinesLink"} to={"/myroutines"}>My Routines</Link>
+      }
+
       <Link id={"activitiesLink"} to={"/activities"}>Activities</Link>
       <Link id={"registerLink"} to={"/register"}>Register</Link>
 
@@ -30,10 +35,10 @@ const Navbar = (props) => {
       : <Link to="/login"><button className="navButton">Login</button></Link> 
       }
 
-      {/* <Link id={"loginLink"} to={"/login"}>Login</Link> */}
 
       <button onClick={() => {
         console.log(localStorage.getItem("token"))
+        // console.log
       }}>Print Token</button>
       
 

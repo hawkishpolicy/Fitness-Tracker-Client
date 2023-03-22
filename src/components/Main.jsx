@@ -24,9 +24,9 @@ const [isLoggedIn, setIsLoggedIn ] = useState(localStorage.getItem("token"))
                         />}/>
                     <Route path ="/register" element={
                         <Register
-                        username={username} setUsername={setUsername}
-                        password={password} setPassword={setPassword}
-                        setIsLoggedIn={setIsLoggedIn}
+                            username={username} setUsername={setUsername}
+                            password={password} setPassword={setPassword}
+                            setIsLoggedIn={setIsLoggedIn}
                     />}/>
                     <Route path ="/myRoutines" element={<MyRoutines/>}/>
                     <Route path ="/routines" element={<Routines/>}/>

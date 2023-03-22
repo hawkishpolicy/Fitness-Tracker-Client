@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from "react";
+import { RoutineCard } from "./"
 import { getPublicRoutinesCall } from "../API-Adapter";
 
 const Routines = () => {
@@ -20,28 +21,23 @@ const Routines = () => {
     }, [])
 
     
-    try {
-        
-    } catch (error) {
-        console.error(error)
-    }
+    return (
 
-    return(
-        <div >
-        {routines.map((routine, idx) => {
-            return (
-                <div id="routineCard" key={idx}>
-                    <h2 className="title">{routine.name}</h2>
-                    <li>Creator Name: {routine.creatorName}</li>
-                    <li>Goal: {routine.goal}</li>
-                    <li>test: {routine.activities.name}</li>
-                
-                </div>
-                )}
-                )}
-            </div>
+        <div>
+
+            {
+                routines.map((routine, idx) => {
+
+                    return(<RoutineCard key={"allPublicRoutines idx: " + idx} routine={routine}></RoutineCard>)
+
+                })
+            }
+
+
+
+        </div>
 
     )
-            }
+}
 
 export default Routines
