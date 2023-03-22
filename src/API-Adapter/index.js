@@ -1,4 +1,5 @@
 const URL = "https://fitness-tracker-emcu.onrender.com";
+// const URL = "http://localhost:3000";
 
 export const registerNewUserCall = async (username, password) => {
   try {
@@ -8,15 +9,13 @@ export const registerNewUserCall = async (username, password) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user: {
-          username: username,
-          password: password,
-        },
+        username: username,
+        password: password,
       }),
     });
 
     const result = await response.json();
-    return result;
+    return result.token;
   } catch (error) {
     console.log(error);
   }
@@ -30,15 +29,13 @@ export const userLoginCall = async (username, password) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        user: {
-          username: username,
-          password: password,
-        },
+        username: username,
+        password: password,
       }),
     });
 
     const result = await response.json();
-    return result;
+    return result.token;
   } catch (error) {
     console.log(error);
   }

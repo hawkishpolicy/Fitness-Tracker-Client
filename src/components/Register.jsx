@@ -15,30 +15,32 @@ const navigate = useNavigate()
 
 return (
     <div id="basicPage" onSubmit={async(event) => {
+        console.log("This is getting triggered")
         event.preventDefault()
             try {
-               const result =  await registerNewUserCall(username, password)
-                if (result !== undefined) {
-                    setIsLoggedIn(true)
-                    navigate("/")
-                    localStorage.setItem("token", result)
-                    localStorage.setItem("username", username)
-                } else {
-                    console.log("Already Registered")
-                }
+
+              if (localStorage.getItem("token")) {
+                alert("Need to log out before creating a new account")
+              } else {
+                
+                const result =  await registerNewUserCall(username, password)
+                 if (result !== undefined) {
+                     setIsLoggedIn(true)
+                     localStorage.setItem("token", result)
+                     localStorage.setItem("username", username)
+                     navigate("/")
+                 } else {
+                     console.log("token came back undefined")
+                 }
+
+              }
+
             } catch (error) {
                 console.log(error)
             }
         }}>
 
-        <form
-          id="registerCard"
-          onSubmit={(event) => {
-            event.preventDefault();
-            sendUserInfo(username, password);
-            navigate("/login");
-          }}
-        >
+        <form id="registerCard">
           <input
             id={"userNameInput"}
             type={"text"}
@@ -70,9 +72,7 @@ return (
             }}
           ></input>
 
-          <button id={"cardButton"} type="submit">
-            Enter
-          </button>
+          <button id={"cardButton"} type="submit" value="Register">Enter</button>
         </form>
         
     </div>

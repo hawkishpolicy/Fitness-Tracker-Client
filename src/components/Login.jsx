@@ -16,47 +16,51 @@ const Login = (props) => {
         <div id="basicPage" onSubmit={async(event) => {
             event.preventDefault()
             try {
-               const result =  await userLoginCall(username, password)
-                if (result !== undefined) {
-                    setIsLoggedIn(true)
-                    navigate("/")
-                    localStorage.setItem("token", result)
-                    localStorage.setItem("username", username)
-                } else {
-                    console.log("Already Logged In")
-                }
+
+              if (localStorage.getItem("token")) {
+                alert("Already logged in!")
+              } else {
+
+                const result =  await userLoginCall(username, password)
+                 if (result !== undefined) {
+                     setIsLoggedIn(true)
+                     localStorage.setItem("token", result)
+                     localStorage.setItem("username", username)
+                     navigate("/")
+                 } else {
+                     console.log("Invalid Login Credentials")
+                 }
+
+              }
+
             } catch (error) {
                 console.log(error)
             }
 
 
         }}>
-            <form
-          id="loginCard"
-          onSubmit={(event) => {
-            event.preventDefault();
-            sendUserInfo(username, password);
-            navigate("/login");
-          }}
-        >
-          <input
-            id={"userNameInput"}
-            type={"text"}
-            placeholder={"User Name"}
-            value={username}
-            required
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          ></input>
+          <form id="loginCard" >
+            <input
+              id={"userNameInput"}
+              type={"text"}
+              placeholder={"User Name"}
+              value={username}
+              required
+              onChange={(event) => {
+                setUsername(event.target.value);
+              }}
+            ></input>
 
-          <input
-            id={"userPassword"}
-            type={"password"}
-            placeholder={"Password"}
-            min={"8"}
-            required
-          ></input>
+            <input
+              id={"userPassword"}
+              type={"password"}
+              placeholder={"Password"}
+              min={"8"}
+              required
+              onChange={(event) => {
+                setPassword(event.target.value)
+              }}
+            ></input>
 
           <button id={"cardButton"} type="submit">
             Enter
