@@ -54,6 +54,7 @@ export const getPublicRoutinesCall = async () => {
     });
 
     const result = await response.json();
+    console.log("Public Routines Call", result);
     return result;
   } catch (error) {
     console.log(error);
@@ -86,6 +87,7 @@ export const getAllActivitiesCall = async () => {
     });
 
     const result = await response.json();
+    console.log("Activities Call", result);
     return result;
   } catch (error) {
     console.log(error);

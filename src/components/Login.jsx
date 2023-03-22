@@ -32,7 +32,7 @@ const Login = (props) => {
 
         }}>
             <form
-          id="registerCard"
+          id="loginCard"
           onSubmit={(event) => {
             event.preventDefault();
             sendUserInfo(username, password);

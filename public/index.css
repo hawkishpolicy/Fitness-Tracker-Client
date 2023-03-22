@@ -1,15 +1,150 @@
 body {
   margin: 0;
+  height: 100%;
+}
+
+#basicPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
 }
 
 #navbar {
-  background-color: black;
+  background-color: #3498db;
   color: white;
   display: flex;
   align-items: center;
   flex-grow: 1;
   max-height: 10%;
-  min-height: 40px;
+  min-height: 50px;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+#linkBar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 15px;
+}
+
+#homeLink {
+  text-decoration: underline;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#routinesLink {
+  text-decoration: underline;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#activitiesLink {
+  text-decoration: underline;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+}
+#loginLink {
+  text-decoration: underline;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#registerLink {
+  text-decoration: underline;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#aboutLink {
+  text-decoration: underline;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#contactLink {
+  text-decoration: underline;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+#routineCard {
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  box-shadow: 5px 5px 20px;
+}
+
+#activityCard {
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: white;
+  box-shadow: 5px 5px 20px;
+}
+
+#registerCard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 500px;
+  align-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 10px;
+  box-shadow: 10px 10px 30px;
+  background-color: white;
+}
+
+#loginCard {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 500px;
+  align-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 10px;
+  background-color: white;
+  box-shadow: 10px 10px 30px;
+}
+
+#footer {
+  background-color: #3498db;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  text-decoration: underline;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 
 .loader {
@@ -34,4 +169,29 @@ body {
   100% {
     transform: rotate(360deg);
   }
+}
+
+#homeLink:hover {
+  color: #255676;
+}
+#routinesLink:hover {
+  color: #255676;
+}
+#activitiesLink:hover {
+  color: #255676;
+}
+#loginLink:hover {
+  color: #255676;
+}
+
+#registerLink:hover {
+  color: #255676;
+}
+
+#aboutLink:hover {
+  color: #255676;
+}
+
+#contactLink:hover {
+  color: #255676;
 }

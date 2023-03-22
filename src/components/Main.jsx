@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Navbar, Footer, Home, Login, Routines, Activities, Register, MyRoutines } from "./";
+import { Navbar, Footer, Home, Login, Routines, Activities, Register, MyRoutines, About, Contact } from "./";
 import { Routes, Route } from "react-router-dom"
 
 
@@ -18,8 +18,10 @@ const [isLoggedIn, setIsLoggedIn ] = useState(localStorage.getItem("token"))
                     <Route path ="/myRoutines" element={<MyRoutines/>}/>
                     <Route path ="/routines" element={<Routines/>}/>
                     <Route path ="/activities" element={<Activities/>}/>
-                    <Route path="/login" element={<Login/>}/>
-                    <Route path="/register" element={<Register/>}/>
+                    <Route path ="/login" element={<Login/>}/>
+                    <Route path ="/register" element={<Register/>}/>
+                    <Route path ="/about" element={<About/>}/>
+                    <Route path = "/contact" element={<Contact/>}/>
                 </Routes>
             </div>
             <Footer />
