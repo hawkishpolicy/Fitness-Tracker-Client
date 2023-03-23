@@ -66,6 +66,9 @@ const UpdateRoutineActivityForm = (props) => {
 
                 <button type="submit">Submit</button>
 
+                <br></br>
+                <br></br>
+
             </form>
         </div> 
 

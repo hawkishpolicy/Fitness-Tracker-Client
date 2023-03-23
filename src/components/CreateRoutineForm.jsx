@@ -6,6 +6,8 @@ const CreateRoutineForm = (props) => {
 
     const getAllUserRoutines = props.getAllUserRoutines
 
+    const routineForm = document.getElementById("createRoutineCard")
+
     const publicCheckBox = document.getElementById("publicCheckBox")
 
     let nameOfRoutine = ""
@@ -21,6 +23,7 @@ const CreateRoutineForm = (props) => {
             if (nameOfRoutine.length > 0 && goalOfRoutine.length > 0) {
                 await createNewRoutineCall(isPublic, nameOfRoutine, goalOfRoutine)
                 getAllUserRoutines()
+                routineForm.reset()
                 nameOfRoutine = ""
                 goalOfRoutine = ""
                 publicCheckBox.checked = false;

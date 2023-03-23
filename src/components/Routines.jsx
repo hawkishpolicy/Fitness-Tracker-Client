@@ -4,9 +4,7 @@ import { getPublicRoutinesCall } from "../API-Adapter";
 
 const Routines = () => {
     const [routines,setRoutines] = useState([])
-    // const routine = props.routines
-    // const setRoutine = props.setRoutines
-    // const idx = props.idx
+    const [showUserRoutines, setShowUserRoutines] = useState(false)
 
     
     const getPublicRoutines = async () => {
@@ -28,7 +26,7 @@ const Routines = () => {
 
             {routines.length ? routines.map((routine, idx) => {
 
-                    return(<RoutineCard key={"allPublicRoutines idx: " + idx} routine={routine}></RoutineCard>)
+                    return(<RoutineCard key={"allPublicRoutines idx: " + idx} routine={routine} setRoutines={setRoutines} showUserRoutines={showUserRoutines} setShowUserRoutines={setShowUserRoutines}></RoutineCard>)
 
                 }) : <div className="loader"></div>
             } 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { AttachActivityForm } from './'
-import { deleteRoutineCall, deleteRoutineActivityCall, updateRoutineActivityCall } from '../API-Adapter'
+import { deleteRoutineCall, deleteRoutineActivityCall, updateRoutineActivityCall, getAllUserRoutinesCall, getPublicRoutinesCall } from '../API-Adapter'
 import UpdateRoutineForm from './UpdateRoutineForm'
 import UpdateRoutineActivityForm from './UpdateRoutineActivityForm'
 
@@ -9,11 +9,15 @@ const RoutineCard = (props) => {
     const routine = props.routine
     const myRoutine = props.myRoutine
     const getAllUserRoutines = props.getAllUserRoutines
-
+    const setRoutines = props.setRoutines
+    const showUserRoutines = props.showUserRoutines
+    const setShowUserRoutines = props.setShowUserRoutines
+    
+    
     const [showAttachForm, setShowAttachForm] = useState(false)
     const [showUpdateRoutineForm, setShowUpdateRoutineForm] = useState(false)
     const [showUpdateRoutineActivityForm, setShowUpdateRoutineActivityForm] = useState(false)
-    const [routineActivityId, setRoutineActivityId] =useState ()
+    const [routineActivityId, setRoutineActivityId] = useState ()
 
 
     return(
@@ -22,7 +26,19 @@ const RoutineCard = (props) => {
             <h2 className="title">{routine.name}</h2>
             <li>Goal: {routine.goal}</li>
             <li>Creator: {routine.creatorName}</li>
-            {/* <li>Id: {routine.id}</li> */}
+
+            {( (!myRoutine && showUserRoutines) && <button onClick={ async () => {
+                const publicRoutines = await getPublicRoutinesCall()
+                setRoutines(publicRoutines)
+                setShowUserRoutines(!showUserRoutines)
+            }}>Show All Routines</button>)}
+
+            {( (!myRoutine && !showUserRoutines ) && <button onClick={ async () => {
+                const usersRoutines = await getAllUserRoutinesCall(routine.creatorName)
+                setRoutines(usersRoutines)
+                setShowUserRoutines(!showUserRoutines)
+            }}>Show Users Routines</button> )}
+
             {
                 
                 (myRoutine && ( routine.isPublic ? <li>Status: Public</li> : <li>Status: Private</li>) )

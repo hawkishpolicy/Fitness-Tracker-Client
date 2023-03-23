@@ -12,41 +12,44 @@ let descriptionOfActivity = ""
         <div>
             <div id="basicPage" onSubmit={async (event) => {
 
-event.preventDefault();
+                event.preventDefault();
 
-if (nameOfActivity.length > 0 && descriptionOfActivity.length > 0) {
-    await createNewActivityCall(nameOfActivity, descriptionOfActivity)
-    getActivities()
-    nameOfActivity = ""
-    descriptionOfActivity = ""
-} else {
-    alert("Need all text fields to be full")
-}
-
-
-}}>
-<form id="createActivityCard">
-
-    <h2>Add Activity Below</h2>
-
-    
-        <input type="text" defaultValue={nameOfActivity}placeholder= "Name" name="name" onChange={(event)=>{
-
-            nameOfActivity = event.target.value
-
-        }}></input>
+                if (nameOfActivity.length > 0 && descriptionOfActivity.length > 0) {
+                    await createNewActivityCall(nameOfActivity, descriptionOfActivity)
+                    getActivities()
+                    nameOfActivity = ""
+                    descriptionOfActivity = ""
+                } else {
+                    alert("Need all text fields to be full")
+                }
 
 
+            }}>
+                <form id="createActivityCard">
 
-        <input type="text" defaultValue={descriptionOfActivity} placeholder="Description" name="goal" onChange={(event)=>{
+                    <h2>Add Activity Below</h2>
 
-            descriptionOfActivity = event.target.value
+                    
+                    <input type="text" defaultValue={nameOfActivity}placeholder= "Name" name="name" onChange={(event)=>{
 
-        }}></input>
-    <button id={"cardButton"} type="submit">Submit</button>
+                        nameOfActivity = event.target.value
 
-</form>
-</div>
+                    }}></input>
+
+
+
+                    <input type="text" defaultValue={descriptionOfActivity} placeholder="Description" name="goal" onChange={(event)=>{
+
+                        descriptionOfActivity = event.target.value
+
+                    }}></input>
+
+                    <button id={"cardButton"} type="submit">Submit</button>
+
+                    <br></br>
+
+                </form>
+            </div>
         </div>
     )
 }

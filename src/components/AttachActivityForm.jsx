@@ -10,6 +10,8 @@ const AttachActivityForm = (props) => {
     const setShowAttachForm = props.setShowAttachForm
     const getAllUserRoutines = props.getAllUserRoutines
 
+
+
     const [allActivities, setAllActivities] = useState([])
     
     const [selectedActivityId, setSelectedActivityId] = useState(null)
@@ -17,6 +19,7 @@ const AttachActivityForm = (props) => {
     const getAllActivities = async () => {
         const fetchedActivities = await getAllActivitiesCall();
         setAllActivities(fetchedActivities)
+        
     }
 
     useEffect(() => {
@@ -52,12 +55,14 @@ const AttachActivityForm = (props) => {
                         setSelectedActivityId(evt.target.value)
 
                     }}>
-                        {/* <option value="userPosts">User Posts</option> */}
 
                         <option value={""}>Select Activity</option>
                         
                         {
                             (allActivities.length > 0 ? allActivities.map((activity, idx) => {
+
+                                console.log("activityObject: ", routine)
+
                                 return (<option value={activity.id} key={`idx of allActivities map: ${idx}`}>{activity.name}</option>)
                             }) : null)
                         }
@@ -79,9 +84,9 @@ const AttachActivityForm = (props) => {
 
                     }}/> 
             
+                    <button type="submit">Submit</button>
 
-
-                <button type="submit">Submit</button>
+                    <br></br>
 
             </form>
         </div>

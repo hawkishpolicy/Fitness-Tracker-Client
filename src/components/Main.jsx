@@ -38,7 +38,7 @@ const [isLoggedIn, setIsLoggedIn ] = useState(localStorage.getItem("token"))
                     <Route path = "/contact" element={<Contact/>}/>
                 </Routes>
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </div>
     )
 }
