@@ -17,16 +17,19 @@ const MyRoutines = () => {
 
     return(
 
-        <div>
+        <div id="basicPage">
+
+            <div id="#myRoutinesDisplay">
 
             {userRoutines.length ? userRoutines.map((routine, idx) => {
-    
+
                     return(
                     <RoutineCard 
                         key={"allUserRoutines idx: " + idx} 
                         routine={routine} 
                         myRoutine={true}
-                        getAllUserRoutines = {getAllUserRoutines}>
+                        getAllUserRoutines = {getAllUserRoutines}
+                        >
                             
                     </RoutineCard>)
     
@@ -37,7 +40,11 @@ const MyRoutines = () => {
                 // </div>
             }
 
-            <CreateRoutineForm getAllUserRoutines = {getAllUserRoutines}></CreateRoutineForm>
+            </div>
+
+            <div id="myRoutinesFormDisplay">
+                <CreateRoutineForm getAllUserRoutines = {getAllUserRoutines}></CreateRoutineForm>
+            </div>
 
         </div>
     )

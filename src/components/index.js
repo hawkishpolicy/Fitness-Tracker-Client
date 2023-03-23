@@ -12,3 +12,4 @@ export { default as Contact } from "./Contact";
 export { default as RoutineCard } from "./RoutineCard";
 export { default as CreateRoutineForm } from "./CreateRoutineForm";
 export { default as CreateActivityForm } from "./CreateActivityForm";
+export { default as AttachActivityForm } from "./AttachActivityForm";

@@ -1,5 +1,5 @@
 import React from 'react'
-import { createNewRoutineCall } from '../API-Adapter'
+import { createNewRoutineCall} from '../API-Adapter'
 
 const CreateRoutineForm = (props) => {
 
@@ -14,7 +14,7 @@ const CreateRoutineForm = (props) => {
 
 
     return (
-        <div id="basicPage" onSubmit={async (event) => {
+        <div onSubmit={async (event) => {
 
             event.preventDefault();
 
@@ -33,8 +33,10 @@ const CreateRoutineForm = (props) => {
         }}>
             <form id="createRoutineCard">
 
+                <h2>Create Routine</h2>
+
                 <label className="">
-                    Name: 
+                    Routine Name: 
                     <input type="text" defaultValue={nameOfRoutine} name="name" onChange={(event)=>{
 
                         nameOfRoutine = event.target.value
@@ -43,7 +45,7 @@ const CreateRoutineForm = (props) => {
                 </label>
 
                 <label className="">
-                    Goal: 
+                    Routine Goal: 
                     <input type="text" defaultValue={goalOfRoutine} name="goal" onChange={(event)=>{
 
                         goalOfRoutine = event.target.value

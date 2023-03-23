@@ -67,9 +67,7 @@ export const getAllUserRoutinesCall = async (username) => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    console.log("token: ", localStorage.getItem("token"));
     const result = await response.json();
-    console.log("Get All User Routines Call: ", result);
     return result;
   } catch (error) {
     console.error(error);
@@ -150,5 +148,80 @@ export const deleteRoutineCall = async (routineId) => {
     // return result;
   } catch (error) {
     console.log(error);
+  }
+};
+
+export const deleteRoutineActivityCall = async (routineActivityId) => {
+  try {
+    const response = await fetch(
+      `${URL}/api/routine_activities/${routineActivityId}`,
+      {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+    const result = await response.json();
+    console.log("result: ", result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const addActivityToRoutineCall = async (
+  routineId,
+  activityId,
+  count,
+  duration
+) => {
+  try {
+    const response = await fetch(
+      `${URL}/api/routines/${routineId}/activities`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          routineId: routineId,
+          activityId: activityId,
+          count: count,
+          duration: duration,
+        }),
+      }
+    );
+    const result = await response.json();
+    console.log("result: ", result);
+    return result;
+  } catch (error) {
+    console.log("An error occured during addActivityToRoutineCall!");
+    console.error(error);
+    throw error;
+  }
+};
+
+export const updateRoutineCall = async (routineId, name, goal) => {
+  try {
+    const response = await fetch(`${URL}/api/routines/${routineId}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        name: name,
+        goal: goal,
+      }),
+    });
+    // const result = response.json();
+    // console.log("result: ", result);
+    // return result
+  } catch (error) {
+    console.log("An error occured during updateRoutineCall!");
+    console.error(error);
+    throw error;
   }
 };

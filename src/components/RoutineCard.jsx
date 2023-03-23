@@ -1,18 +1,21 @@
-import React from 'react'
-import { deleteRoutineCall } from '../API-Adapter'
+import React, { useState } from 'react'
+import { AttachActivityForm } from './'
+import { deleteRoutineCall, deleteRoutineActivityCall } from '../API-Adapter'
 
 const RoutineCard = (props) => {
 
     const routine = props.routine
     const myRoutine = props.myRoutine
     const getAllUserRoutines = props.getAllUserRoutines
-    console.log("dwdgudwud", routine.id)
+
+    const [showAttachForm, setShowAttachForm] = useState(false)
 
     return(
         <div id="routineCard">
             <h2 className="title">{routine.name}</h2>
             <li>Creator Name: {routine.creatorName}</li>
             <li>Goal: {routine.goal}</li>
+            <li>Id: {routine.id}</li>
             {
                 
                 (myRoutine && ( routine.isPublic ? <li>Public</li> : <li>Private</li>) )
@@ -32,42 +35,54 @@ const RoutineCard = (props) => {
                             <li>Description: {activity.description}</li>
                             <li>Count: {activity.count}</li>
                             <li>Duration: {activity.duration}</li>
-
                             
+                            {/* <button>Delete Activity From Routine</button> */}
 
+                            {(myRoutine && <button onClick={async () => {
+                                await deleteRoutineActivityCall(activity.routineActivityId)
+                                getAllUserRoutines();
+                            }}>Remove activity from routine</button>)}
+
+                            <br></br>
                             <br></br>
 
                         </div>
                     )
                 })
             }
-            <div id="" onClick={async(event) => {
-            event.preventDefault()
-            console.log("wfwfwff", event)
-             try {
-                await deleteRoutineCall (routine.id)
-                getAllUserRoutines()
-             } catch (error) {
-                console.log(error)
-             }
-            }}>
+
+
+            
+            {/* Buttons */}
+            <div id="">
             {
-            (myRoutine && (<button>Delete</button>))
+            (myRoutine && (<button onClick={async(event) => {
+                event.preventDefault()
+                console.log("wfwfwff", event)
+                try {
+                    await deleteRoutineCall (routine.id)
+                    getAllUserRoutines()
+                } catch (error) {
+                    console.log(error)
+                }
+            }}>Delete Routine</button>))
+
             }
+
+            {(myRoutine && <button onClick={() => {
+                setShowAttachForm(!showAttachForm)
+            }}>Add Activity To Routine</button>)}
+
             </div>
 
-            {/* <div id="" onSubmit={async(event) => {
-            event.preventDefault()
-             try {
-                const deleteRoutine  = await deleteRoutineCall (routine.id)
-             } catch (error) {
-                console.log(error)
-             }
-            }}>
-            {
-            (myRoutine && (<button type="submit">Update</button>))
-            }
-            </div> */}
+            
+            
+
+            {/* Forms */}
+
+            {(showAttachForm && <AttachActivityForm routine={routine} setShowAttachForm={setShowAttachForm} getAllUserRoutines={getAllUserRoutines}></AttachActivityForm>)}
+
+
         </div>
     )
 
