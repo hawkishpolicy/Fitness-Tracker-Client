@@ -1,9 +1,12 @@
 import React from 'react'
+import { deleteRoutineCall } from '../API-Adapter'
 
 const RoutineCard = (props) => {
 
     const routine = props.routine
-    const isPublic = props.isPublic
+    const myRoutine = props.myRoutine
+    const getAllUserRoutines = props.getAllUserRoutines
+    console.log("dwdgudwud", routine.id)
 
     return(
         <div id="routineCard">
@@ -12,7 +15,7 @@ const RoutineCard = (props) => {
             <li>Goal: {routine.goal}</li>
             {
                 
-                (isPublic !== undefined && ( isPublic ? <li>Public</li> : <li>Private</li>) )
+                (myRoutine && ( routine.isPublic ? <li>Public</li> : <li>Private</li>) )
                 
             }
 
@@ -38,7 +41,33 @@ const RoutineCard = (props) => {
                     )
                 })
             }
+            <div id="" onClick={async(event) => {
+            event.preventDefault()
+            console.log("wfwfwff", event)
+             try {
+                await deleteRoutineCall (routine.id)
+                getAllUserRoutines()
+             } catch (error) {
+                console.log(error)
+             }
+            }}>
+            {
+            (myRoutine && (<button>Delete</button>))
+            }
+            </div>
 
+            {/* <div id="" onSubmit={async(event) => {
+            event.preventDefault()
+             try {
+                const deleteRoutine  = await deleteRoutineCall (routine.id)
+             } catch (error) {
+                console.log(error)
+             }
+            }}>
+            {
+            (myRoutine && (<button type="submit">Update</button>))
+            }
+            </div> */}
         </div>
     )
 

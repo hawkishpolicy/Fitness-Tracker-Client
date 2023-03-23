@@ -9,7 +9,6 @@ const MyRoutines = () => {
     const getAllUserRoutines = async () => {
         const allRoutines = await getAllUserRoutinesCall(localStorage.getItem("username"))
         setUserRoutines(allRoutines)
-        console.log("All User Routines: ", userRoutines)
     }
     
     useEffect(() => {
@@ -19,17 +18,26 @@ const MyRoutines = () => {
     return(
 
         <div>
-            <br></br>
 
-            {
-                userRoutines.map((routine, idx) => {
+            {userRoutines.length ? userRoutines.map((routine, idx) => {
     
-                    return(<RoutineCard key={"allUserRoutines idx: " + idx} routine={routine} isPublic={routine.isPublic}></RoutineCard>)
+                    return(
+                    <RoutineCard 
+                        key={"allUserRoutines idx: " + idx} 
+                        routine={routine} 
+                        myRoutine={true}
+                        getAllUserRoutines = {getAllUserRoutines}>
+                            
+                    </RoutineCard>)
     
-                })
+                }) : <div></div> 
+                
+                // <div className="loader">
+
+                // </div>
             }
 
-            {/* <CreateRoutineForm></CreateRoutineForm> */}
+            <CreateRoutineForm getAllUserRoutines = {getAllUserRoutines}></CreateRoutineForm>
 
         </div>
     )

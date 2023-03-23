@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from "react";
 import { getAllActivitiesCall } from "../API-Adapter";
+import CreateActivityForm from "./CreateActivityForm";
 
-const Activities = () => {
+const Activities = (props) => {
 
     const [activities,setActivities] = useState([])
-    // const routine = props.routines
-    // const setRoutine = props.setRoutines
-    // const idx = props.idx
+    const isLoggedIn = props.isLoggedIn
 
     
     const getActivities = async () => {
@@ -28,7 +27,7 @@ const Activities = () => {
 
     return(
         <div >
-        {activities.map((activity, idx) => {
+        {activities.length ? activities.map((activity, idx) => {
             return (
                 <div id="activityCard" key={idx}>
                     <h2 className="title">{activity.name}</h2>
@@ -36,9 +35,15 @@ const Activities = () => {
                     
                 </div>
                 )}
-                )}
-            </div>
+                ): <div className="loader"></div>
+                }
 
+            {
+            isLoggedIn && activities.length &&
+            <CreateActivityForm getActivities = {getActivities}></CreateActivityForm>
+            }
+
+            </div>
     )
     
 }

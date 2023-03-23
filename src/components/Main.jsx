@@ -30,7 +30,10 @@ const [isLoggedIn, setIsLoggedIn ] = useState(localStorage.getItem("token"))
                     />}/>
                     <Route path ="/myRoutines" element={<MyRoutines/>}/>
                     <Route path ="/routines" element={<Routines/>}/>
-                    <Route path ="/activities" element={<Activities/>}/>
+                    <Route path ="/activities" element={
+                        <Activities
+                            isLoggedIn = {isLoggedIn}
+                    />}/>
                     <Route path ="/about" element={<About/>}/>
                     <Route path = "/contact" element={<Contact/>}/>
                 </Routes>

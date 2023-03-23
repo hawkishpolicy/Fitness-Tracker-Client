@@ -1,7 +1,10 @@
 import React from 'react'
 import { createNewRoutineCall } from '../API-Adapter'
 
-const CreateRoutineForm = () => {
+const CreateRoutineForm = (props) => {
+
+
+    const getAllUserRoutines = props.getAllUserRoutines
 
     const publicCheckBox = document.getElementById("publicCheckBox")
 
@@ -17,7 +20,7 @@ const CreateRoutineForm = () => {
 
             if (nameOfRoutine.length > 0 && goalOfRoutine.length > 0) {
                 await createNewRoutineCall(isPublic, nameOfRoutine, goalOfRoutine)
-
+                getAllUserRoutines()
                 nameOfRoutine = ""
                 goalOfRoutine = ""
                 publicCheckBox.checked = false;

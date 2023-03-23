@@ -93,7 +93,7 @@ export const getAllActivitiesCall = async () => {
   }
 };
 
-export const createNewRoutineCall = async (name, goal, isPublic) => {
+export const createNewRoutineCall = async (isPublic, name, goal) => {
   try {
     const response = await fetch(`${URL}/api/routines`, {
       method: "POST",
@@ -111,6 +111,43 @@ export const createNewRoutineCall = async (name, goal, isPublic) => {
     const result = await response.json();
     console.log("createNewRoutinesCall: ", result);
     return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const createNewActivityCall = async (name, description) => {
+  try {
+    const response = await fetch(`${URL}/api/activities`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+      body: JSON.stringify({
+        name: name,
+        description: description,
+      }),
+    });
+    const result = await response.json();
+    console.log("createNewActivityCall:", result);
+    return result;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const deleteRoutineCall = async (routineId) => {
+  try {
+    const response = await fetch(`${URL}/api/routines/${routineId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    });
+    // const result = await response.json();
+    // return result;
   } catch (error) {
     console.log(error);
   }

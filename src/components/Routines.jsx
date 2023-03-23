@@ -25,13 +25,12 @@ const Routines = () => {
 
         <div>
 
-            {
-                routines.map((routine, idx) => {
+            {routines.length ? routines.map((routine, idx) => {
 
                     return(<RoutineCard key={"allPublicRoutines idx: " + idx} routine={routine}></RoutineCard>)
 
-                })
-            }
+                }) : <div className="loader"></div>
+            } 
 
 
 
