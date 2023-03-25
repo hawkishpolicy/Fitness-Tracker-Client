@@ -25,14 +25,14 @@ const Navbar = (props) => {
       <Link id={"registerLink"} to={"/register"}>Register</Link>
 
       {
-        isLoggedIn ? <button onClick={()=>{ 
+        isLoggedIn ? <button id={"logoutLink"} onClick={()=>{ 
           setIsLoggedIn(false)
           localStorage.removeItem("token")
           localStorage.removeItem("username")
           navigate("/", {replace: true}) 
           window.location.reload(true);
-      }} className="navButton">Log Out</button> 
-      : <Link to="/login"><button className="navButton">Login</button></Link> 
+      }} className="navButton">Log Out</button>
+      : <Link to="/login"><button id="loginLink">Login</button></Link> 
       }
 
 

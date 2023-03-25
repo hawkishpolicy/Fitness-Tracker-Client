@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { AttachActivityForm } from './'
-import { deleteRoutineCall, deleteRoutineActivityCall } from '../API-Adapter'
+import { deleteRoutineCall, deleteRoutineActivityCall, updateRoutineCall } from '../API-Adapter'
+import UpdateRoutineForm from './UpdateRoutineForm'
 
 const RoutineCard = (props) => {
 
@@ -9,12 +10,13 @@ const RoutineCard = (props) => {
     const getAllUserRoutines = props.getAllUserRoutines
 
     const [showAttachForm, setShowAttachForm] = useState(false)
+    const [showUpdateRoutineForm, setShowUpdateRoutineForm] = useState(false)
 
     return(
         <div id="routineCard">
             <h2 className="title">{routine.name}</h2>
-            <li>Creator Name: {routine.creatorName}</li>
             <li>Goal: {routine.goal}</li>
+            <li>Creator Name: {routine.creatorName}</li>
             <li>Id: {routine.id}</li>
             {
                 
@@ -58,7 +60,7 @@ const RoutineCard = (props) => {
             {
             (myRoutine && (<button onClick={async(event) => {
                 event.preventDefault()
-                console.log("wfwfwff", event)
+                console.log("Delete Routine:", event)
                 try {
                     await deleteRoutineCall (routine.id)
                     getAllUserRoutines()
@@ -66,6 +68,14 @@ const RoutineCard = (props) => {
                     console.log(error)
                 }
             }}>Delete Routine</button>))
+
+            }
+
+{
+            (myRoutine && (<button onClick={async(event) => {
+                event.preventDefault()
+                setShowUpdateRoutineForm(!showUpdateRoutineForm)
+            }}>Update Routine</button>))
 
             }
 
@@ -81,6 +91,8 @@ const RoutineCard = (props) => {
             {/* Forms */}
 
             {(showAttachForm && <AttachActivityForm routine={routine} setShowAttachForm={setShowAttachForm} getAllUserRoutines={getAllUserRoutines}></AttachActivityForm>)}
+
+            {(showUpdateRoutineForm && <UpdateRoutineForm routine={routine} setShowUpdateRoutineForm={setShowUpdateRoutineForm} getAllUserRoutines={getAllUserRoutines}></UpdateRoutineForm>)}
 
 
         </div>

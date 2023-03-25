@@ -10,7 +10,6 @@ let descriptionOfActivity = ""
 
     return (
         <div>
-            <h2>Activities always win</h2>
             <div id="basicPage" onSubmit={async (event) => {
 
 event.preventDefault();

@@ -26,7 +26,8 @@ const Activities = (props) => {
     }
 
     return(
-        <div >
+        <div id="basicPage">
+            <div id="#myRoutinesDisplay">
         {activities.length ? activities.map((activity, idx) => {
             return (
                 <div id="activityCard" key={idx}>
@@ -37,11 +38,13 @@ const Activities = (props) => {
                 )}
                 ): <div className="loader"></div>
                 }
-
+            </div>
+            <div id="myRoutinesFormDisplay">
             {
             isLoggedIn && activities.length &&
             <CreateActivityForm getActivities = {getActivities}></CreateActivityForm>
             }
+            </div>
 
             </div>
     )

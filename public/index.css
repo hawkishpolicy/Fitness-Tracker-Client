@@ -44,6 +44,13 @@ body {
   font-weight: bold;
 }
 
+#myRoutinesLink {
+  text-decoration: underline;
+  color: white;
+  font-size: x-large;
+  font-weight: bold;
+}
+
 #activitiesLink {
   text-decoration: underline;
   color: white;
@@ -51,10 +58,15 @@ body {
   font-weight: bold;
 }
 #loginLink {
+  font-family: "Tilt Neon";
   text-decoration: underline;
   color: white;
+  background-color: #3498db;
+  border: none;
   font-size: x-large;
   font-weight: bold;
+  margin-left: 0px;
+  padding: 0px;
 }
 
 #registerLink {
@@ -62,6 +74,17 @@ body {
   color: white;
   font-size: x-large;
   font-weight: bold;
+}
+#logoutLink {
+  font-family: "Tilt Neon";
+  text-decoration: underline;
+  color: white;
+  background-color: #3498db;
+  border: none;
+  font-size: x-large;
+  font-weight: bold;
+  margin-left: 0px;
+  padding: 0px;
 }
 
 #aboutLink {
@@ -185,6 +208,10 @@ body {
   bottom: 0;
 }
 
+button {
+  margin-left: 15px;
+}
+
 .loader {
   border: 6px solid #f3f3f3;
   border-top: 6px solid red;
@@ -212,7 +239,17 @@ body {
 #homeLink:hover {
   color: #255676;
 }
+
+#homeLink.active {
+  background-color: #255676;
+  color: white;
+  cursor: default;
+}
 #routinesLink:hover {
+  color: #255676;
+}
+
+#myRoutinesLink:hover {
   color: #255676;
 }
 #activitiesLink:hover {
@@ -223,6 +260,10 @@ body {
 }
 
 #registerLink:hover {
+  color: #255676;
+}
+
+#logoutLink:hover {
   color: #255676;
 }
 

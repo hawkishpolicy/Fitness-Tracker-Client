@@ -216,9 +216,9 @@ export const updateRoutineCall = async (routineId, name, goal) => {
         goal: goal,
       }),
     });
-    // const result = response.json();
-    // console.log("result: ", result);
-    // return result
+    const result = response.json();
+    console.log("result: ", result);
+    return result;
   } catch (error) {
     console.log("An error occured during updateRoutineCall!");
     console.error(error);
