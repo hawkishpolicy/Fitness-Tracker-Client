@@ -1,5 +1,4 @@
 const URL = "https://fitness-tracker-emcu.onrender.com";
-// const URL = "http://localhost:3000";
 
 export const registerNewUserCall = async (username, password) => {
   try {
@@ -144,8 +143,6 @@ export const deleteRoutineCall = async (routineId) => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     });
-    // const result = await response.json();
-    // return result;
   } catch (error) {
     console.log(error);
   }

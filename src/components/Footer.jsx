@@ -5,8 +5,6 @@ const Footer = () => {
         <div id="footer">
             <Link id={"aboutLink"} to={"/about"}>About</Link>
             <Link id={"contactLink"} to={"/contact"}>Contact</Link>
-            {/* <h2 id="aboutLink">About</h2>
-            <h2 id="contactLink">Contact</h2> */}
         </div>
 
     )

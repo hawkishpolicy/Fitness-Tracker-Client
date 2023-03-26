@@ -31,11 +31,8 @@ const Activities = (props) => {
         {activities.length ? activities.map((activity, idx) => {
             return (
                 <div id="activityCard" key={idx}>
-                    <h1>Activity:</h1>
                     <h2 className="title">{activity.name}</h2>
                     <li>Description: {activity.description}</li>
-                    <br></br>
-                    <br></br>
                     
                 </div>
                 )}

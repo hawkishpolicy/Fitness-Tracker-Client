@@ -36,7 +36,7 @@ const CreateRoutineForm = (props) => {
         }}>
             <form id="createRoutineCard">
 
-                <h2>Create Routine</h2>
+                <h1>Create Routine</h1>
 
                 
                     <input type="text" defaultValue={nameOfRoutine} placeholder="Routine Name" name="name" onChange={(event)=>{

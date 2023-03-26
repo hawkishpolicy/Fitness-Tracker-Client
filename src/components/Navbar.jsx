@@ -35,13 +35,6 @@ const Navbar = (props) => {
       : <Link to="/login"><button id="loginLink">Login</button></Link> 
       }
 
-
-      <button onClick={() => {
-        console.log(localStorage.getItem("token"))
-        // console.log
-      }}>Print Token</button>
-      
-
     </div>
     </div>
   );

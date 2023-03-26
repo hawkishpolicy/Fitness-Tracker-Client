@@ -10,7 +10,7 @@ let descriptionOfActivity = ""
 
     return (
         <div>
-            <div id="basicPage" onSubmit={async (event) => {
+            <div onSubmit={async (event) => {
 
                 event.preventDefault();
 
@@ -27,7 +27,7 @@ let descriptionOfActivity = ""
             }}>
                 <form id="createActivityCard">
 
-                    <h2>Add Activity Below</h2>
+                    <h1>Add Activity Below</h1>
 
                     
                     <input type="text" defaultValue={nameOfActivity}placeholder= "Name" name="name" onChange={(event)=>{

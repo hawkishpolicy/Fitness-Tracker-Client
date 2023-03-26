@@ -11,17 +11,11 @@ const UpdateRoutineActivityForm = (props) => {
     const getAllUserRoutines = props.getAllUserRoutines
     console.log("!!!!,", routine)
     
-    // const getRaId = routine.activities.map(routineActivityId, idx)
-    // console.log ("^^^^^",getRaId)
+     
    
     return (
         
-        // routine.activities.map((activity, idx) => {
-        //     return (
-        //         <>
-        //         <li>{activity.routineActivityId}
-
-        //         </li>
+     
                 
         <div onSubmit={async (event) => {
 

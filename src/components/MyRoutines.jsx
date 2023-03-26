@@ -4,7 +4,7 @@ import { getAllUserRoutinesCall } from "../API-Adapter";
 
 const MyRoutines = () => {
 
-    const [userRoutines, setUserRoutines] = useState([])
+    const [userRoutines, setUserRoutines] = useState(null)
 
     const getAllUserRoutines = async () => {
         const allRoutines = await getAllUserRoutinesCall(localStorage.getItem("username"))
@@ -21,7 +21,7 @@ const MyRoutines = () => {
 
             <div id="myRoutinesDisplay">
 
-            {userRoutines.length ? userRoutines.map((routine, idx) => {
+            {userRoutines ? userRoutines.map((routine, idx) => {
 
                     return(
                     <RoutineCard 

@@ -22,23 +22,23 @@ const RoutineCard = (props) => {
 
     return(
         <div id="routineCard">
-            <h1>Routine:</h1>
             <h2 className="title">{routine.name}</h2>
             <li>Goal: {routine.goal}</li>
             <li>Creator: {routine.creatorName}</li>
 
-            {( (!myRoutine && showUserRoutines) && <button onClick={ async () => {
+            <div id="routineButtonsContainer">
+            {( (!myRoutine && showUserRoutines) && <button id="routineButton" onClick={ async () => {
                 const publicRoutines = await getPublicRoutinesCall()
                 setRoutines(publicRoutines)
                 setShowUserRoutines(!showUserRoutines)
             }}>Show All Routines</button>)}
 
-            {( (!myRoutine && !showUserRoutines ) && <button onClick={ async () => {
+            {( (!myRoutine && !showUserRoutines ) && <button id="routineButton" onClick={ async () => {
                 const usersRoutines = await getAllUserRoutinesCall(routine.creatorName)
                 setRoutines(usersRoutines)
                 setShowUserRoutines(!showUserRoutines)
-            }}>Show Users Routines</button> )}
-
+            }}>Show Creator Routines</button> )}
+            </div>
             {
                 
                 (myRoutine && ( routine.isPublic ? <li>Status: Public</li> : <li>Status: Private</li>) )
@@ -75,23 +75,18 @@ const RoutineCard = (props) => {
             
             <br></br>
 
-            <h1 className="title">Required Activities: </h1>
+            <h3 className="title"> Included Activities: </h3>
 
             {
                 routine.activities.map((activity, idx) => {
                     return (
                         <div key={"activities in routine idx: " + idx}>
                             
-                            <h2>Name: {activity.name}</h2>
+                            <h4>{activity.name}</h4>
                             <li>Description: {activity.description}</li>
                             <li>Count: {activity.count}</li>
                             <li>Duration: {activity.duration}</li>
-                            <li>Id: {activity.id}</li>
                             
-                            {/* <button>Delete Activity From Routine</button> */}
-                            {/* button to update count and duration */}
-
-
                         <div id="routineActivityButtonsContainer">
                             {(myRoutine && <button id="routineActivityButton" onClick={async (event) => {
                                 event.preventDefault()
