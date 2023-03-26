@@ -19,7 +19,7 @@ const MyRoutines = () => {
 
         <div id="basicPage">
 
-            <div id="#myRoutinesDisplay">
+            <div id="myRoutinesDisplay">
 
             {userRoutines.length ? userRoutines.map((routine, idx) => {
 
@@ -36,7 +36,7 @@ const MyRoutines = () => {
                 }) : 
                 
                 <div className="loader">
-                    
+
                 </div>
             }
 

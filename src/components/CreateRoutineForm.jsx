@@ -35,23 +35,21 @@ const CreateRoutineForm = (props) => {
 
                 <h2>Create Routine</h2>
 
-                <label className="">
-                    Routine Name: 
-                    <input type="text" defaultValue={nameOfRoutine} name="name" onChange={(event)=>{
+                
+                    <input type="text" defaultValue={nameOfRoutine} placeholder="Routine Name" name="name" onChange={(event)=>{
 
                         nameOfRoutine = event.target.value
 
                     }}></input>
-                </label>
+            
 
-                <label className="">
-                    Routine Goal: 
-                    <input type="text" defaultValue={goalOfRoutine} name="goal" onChange={(event)=>{
+            
+                    <input type="text" defaultValue={goalOfRoutine} placeholder="Routine Goal" name="goal" onChange={(event)=>{
 
                         goalOfRoutine = event.target.value
 
                     }}></input>
-                </label>
+            
 
                 <label className="formLabel" >
                     Public:

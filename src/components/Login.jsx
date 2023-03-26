@@ -13,7 +13,7 @@ const Login = (props) => {
     const navigate = useNavigate()
 
     return(
-        <div id="basicPage" onSubmit={async(event) => {
+        <div id="loginPage" onSubmit={async(event) => {
             event.preventDefault()
             try {
 
@@ -40,6 +40,7 @@ const Login = (props) => {
 
         }}>
           <form id="loginCard" >
+            <h1>Please Login Below</h1>
             <input
               id={"userNameInput"}
               type={"text"}

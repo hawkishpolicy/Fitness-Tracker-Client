@@ -10,13 +10,13 @@ const AttachActivityForm = (props) => {
     const setShowAttachForm = props.setShowAttachForm
     const getAllUserRoutines = props.getAllUserRoutines
 
-    const [allActivities, setAllActivites] = useState([])
+    const [allActivities, setAllActivities] = useState([])
     
     const [selectedActivityId, setSelectedActivityId] = useState(null)
     
     const getAllActivities = async () => {
         const fetchedActivities = await getAllActivitiesCall();
-        setAllActivites(fetchedActivities)
+        setAllActivities(fetchedActivities)
     }
 
     useEffect(() => {
@@ -42,12 +42,11 @@ const AttachActivityForm = (props) => {
 
 
         }}>
-            <form >
+            <form id="attachActivityForm" >
 
                 <h2>Add Activity</h2>
 
-                <label className="">
-                    Activity: 
+            
                     <select placeholder={"test"} onChange={(evt) => {
 
                         setSelectedActivityId(evt.target.value)
@@ -64,25 +63,22 @@ const AttachActivityForm = (props) => {
                         }
 
                     </select>
-                </label>
 
-                <label className="">
-                    Count: 
-                    <input type="text" defaultValue={countOfActivity} name="count" onChange={(event)=>{
+            
+                    <input type="text" defaultValue={countOfActivity}placeholder="Count" name="count" onChange={(event)=>{
 
                         countOfActivity = event.target.value
 
                     }}></input>
-                </label>
+            
 
-                <label className="formLabel" >
-                    Duration:
-                    <input type="text" defaultValue={durationOfActivity} name="duration" onChange={(event) => {
+            
+                    <input type="text" defaultValue={durationOfActivity} placeholder="Duration" name="duration" onChange={(event) => {
 
                         durationOfActivity = event.target.value
 
                     }}/> 
-                </label>
+            
 
 
                 <button type="submit">Submit</button>
