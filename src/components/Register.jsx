@@ -14,7 +14,7 @@ const setIsLoggedIn = props.setIsLoggedIn
 const navigate = useNavigate()
 
 return (
-    <div id="basicPage" onSubmit={async(event) => {
+    <div id="registerPage" onSubmit={async(event) => {
         console.log("This is getting triggered")
         event.preventDefault()
             try {
@@ -39,8 +39,9 @@ return (
                 console.log(error)
             }
         }}>
-
+    
         <form id="registerCard">
+            <h1>Please Register Below</h1>
           <input
             id={"userNameInput"}
             type={"text"}
@@ -74,7 +75,6 @@ return (
 
           <button id={"cardButton"} type="submit" value="Register">Enter</button>
         </form>
-        
     </div>
 )}
 

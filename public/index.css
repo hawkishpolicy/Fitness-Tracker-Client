@@ -6,8 +6,30 @@ body {
 #basicPage {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 50px;
+}
+
+#registerPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+#loginPage {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+#homeTitle {
+  justify-content: center;
+  flex-direction: row;
+  display: flex;
+  align-content: center;
+  justify-items: center;
+  align-items: center;
 }
 
 #navbar {
@@ -102,38 +124,110 @@ body {
 }
 
 #myRoutinesDisplay {
-  margin: 5px;
+  /* margin: 5px; */
+  width: 1300px;
+  display: flex;
+  flex-direction: column;
 }
 
 #myRoutinesFormDisplay {
   margin: 5px;
+  width: 500px;
+  border-left: solid 3px black;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 #routineCard {
-  border-radius: 10px;
-  margin-left: 20px;
+  /* border-radius: 10px; */
+  /* margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 25px;
   padding-bottom: 20px;
   padding-top: 20px;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 10px; */
   background-color: white;
-  box-shadow: 5px 5px 20px;
+  /* box-shadow: 5px 5px 20px; */
   width: 100%; /*Added by Emilio*/
+  border-bottom: solid 2px #3498db;
 }
 
+#routineCard li {
+  list-style-type: none;
+  padding: 5px;
+}
+
+#routineButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 10px;
+}
+
+#routineButton {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#routineActivityButtonsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 10px;
+  margin-left: 0px;
+}
+#routineActivityButton {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+#attachActivityForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#attachActivityForm input {
+  margin-top: 10px;
+}
+
+#attachActivityForm button {
+  margin-top: 10px;
+  margin-left: 0px;
+}
+
+#updateRoutineForm {
+  display: flex;
+  flex-direction: column;
+}
+
+#updateRoutineForm input {
+  margin-top: 10px;
+}
+
+#updateRoutineForm button {
+  margin-top: 10px;
+  margin-left: 0px;
+}
 #activityCard {
-  border-radius: 10px;
-  margin-left: 20px;
+  /* border-radius: 10px; */
+  /* margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 25px;
   padding-bottom: 20px;
   padding-top: 20px;
   padding-left: 10px;
-  padding-right: 10px;
+  padding-right: 10px; */
   background-color: white;
-  box-shadow: 5px 5px 20px;
+  /* box-shadow: 5px 5px 20px; */
+  width: 100%; /*Added by Emilio*/
+  border-bottom: solid 2px #3498db;
+}
+
+#activityCard li {
+  list-style-type: none;
+  padding: 5px;
 }
 
 #registerCard {
@@ -148,6 +242,7 @@ body {
   gap: 10px;
   box-shadow: 10px 10px 30px;
   background-color: white;
+  justify-content: center;
 }
 
 #loginCard {
@@ -169,28 +264,35 @@ body {
   flex-direction: column;
   flex-wrap: wrap;
   width: 300px;
-  align-content: center;
+  justify-content: center;
   align-items: center;
   margin: 20px; /*Added by Emilio*/
   padding: 20px;
-  border-radius: 10px;
+  border-bottom: solid 2px black;
+  /* border-radius: 10px; */
   gap: 10px;
-  background-color: white;
-  box-shadow: 10px 10px 30px;
+  /* background-color: white;
+  box-shadow: 10px 10px 30px; */
+}
+
+#createRoutineCard button {
+  margin-left: 0px;
 }
 
 #createActivityCard {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  width: 500px;
-  align-content: center;
+  width: 300px;
+  justify-content: center;
   align-items: center;
+  margin: 20px; /*Added by Emilio*/
   padding: 20px;
-  border-radius: 10px;
+  border-bottom: solid 2px black;
+  /* border-radius: 10px; */
   gap: 10px;
-  background-color: white;
-  box-shadow: 10px 10px 30px;
+  /* background-color: white;
+  box-shadow: 10px 10px 30px; */
 }
 
 #footer {
@@ -210,6 +312,10 @@ body {
 
 button {
   margin-left: 15px;
+}
+
+.deleteButton {
+  color: red;
 }
 
 .loader {
@@ -240,11 +346,6 @@ button {
   color: #255676;
 }
 
-#homeLink.active {
-  background-color: #255676;
-  color: white;
-  cursor: default;
-}
 #routinesLink:hover {
   color: #255676;
 }

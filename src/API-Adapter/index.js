@@ -220,7 +220,34 @@ export const updateRoutineCall = async (routineId, name, goal) => {
     console.log("result: ", result);
     return result;
   } catch (error) {
-    console.log("An error occured during updateRoutineCall!");
+    console.log("An error occurred during updateRoutineCall!");
+    console.error(error);
+    throw error;
+  }
+};
+
+export const updateRoutineActivityCall = async (
+  routineActivityId,
+  count,
+  duration
+) => {
+  try {
+    const response = await fetch(
+      `${URL}/api/routine_activities/${routineActivityId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+        body: JSON.stringify({
+          count: count,
+          duration: duration,
+        }),
+      }
+    );
+  } catch (error) {
+    console.log("An error occurred during updateRoutineActivityCall!!");
     console.error(error);
     throw error;
   }

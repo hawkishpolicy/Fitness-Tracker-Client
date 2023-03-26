@@ -10,9 +10,6 @@ const UpdateRoutineForm = (props) => {
     const setShowUpdateRoutineForm = props.setShowUpdateRoutineForm
     const getAllUserRoutines = props.getAllUserRoutines
 
-    // const [allActivities, setAllActivites] = useState([])
-    
-    // const [selectedActivityId, setSelectedActivityId] = useState(null)
     
    
     return (
@@ -36,27 +33,25 @@ const UpdateRoutineForm = (props) => {
 
 
         }}>
-            <form >
+            <form id="updateRoutineForm" >
 
                 <h2>Update Routine</h2>
 
-                <label className="">
-                    Name: 
-                    <input type="text" defaultValue={nameOfRoutine} name="name" onChange={(event)=>{
+                
+                
+                    <input type="text" defaultValue={nameOfRoutine} placeholder = "Name" name="name" onChange={(event)=>{
 
                         nameOfRoutine = event.target.value
 
                     }}></input>
-                </label>
+                
 
-                <label className="formLabel" >
-                    Goal:
-                    <input type="text" defaultValue={goalOfRoutine} name="goal" onChange={(event) => {
+            
+                    <input type="text" defaultValue={goalOfRoutine} placeholder="Goal" name="goal" onChange={(event) => {
 
                         goalOfRoutine = event.target.value
 
                     }}/> 
-                </label>
 
 
                 <button type="submit">Submit</button>

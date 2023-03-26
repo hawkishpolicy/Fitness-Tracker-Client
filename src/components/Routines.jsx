@@ -23,7 +23,8 @@ const Routines = () => {
     
     return (
 
-        <div>
+        <div id="basicPage">
+             <div id="myRoutinesDisplay">
 
             {routines.length ? routines.map((routine, idx) => {
 
@@ -31,6 +32,10 @@ const Routines = () => {
 
                 }) : <div className="loader"></div>
             } 
+            </div>
+            <div id="myRoutinesFormDisplay">
+
+            </div>
 
 
 

@@ -27,23 +27,22 @@ if (nameOfActivity.length > 0 && descriptionOfActivity.length > 0) {
 }}>
 <form id="createActivityCard">
 
-    <label className="">
-        Name: 
-        <input type="text" defaultValue={nameOfActivity} name="name" onChange={(event)=>{
+    <h2>Add Activity Below</h2>
+
+    
+        <input type="text" defaultValue={nameOfActivity}placeholder= "Name" name="name" onChange={(event)=>{
 
             nameOfActivity = event.target.value
 
         }}></input>
-    </label>
 
-    <label className="">
-        Goal: 
-        <input type="text" defaultValue={descriptionOfActivity} name="goal" onChange={(event)=>{
+
+
+        <input type="text" defaultValue={descriptionOfActivity} placeholder="Description" name="goal" onChange={(event)=>{
 
             descriptionOfActivity = event.target.value
 
         }}></input>
-    </label>
     <button id={"cardButton"} type="submit">Submit</button>
 
 </form>
